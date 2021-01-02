@@ -40,7 +40,7 @@ I tried to build a Python library to communicate with the Black Desert Online ma
 
 ## Getting Started
 
-Obtaining API credentials is analogous to the explanation provided by [kookehs](https://github.com/kookehs/bdo-marketplace#obtaining-credentials-for-api-calls). However, I used an external tool called (curlconverter)[https://curl.trillworks.com/] to convert the cURL to a Python script and worked from there.
+Obtaining API credentials is analogous to the explanation provided by [kookehs](https://github.com/kookehs/bdo-marketplace#obtaining-credentials-for-api-calls). However, I used an external tool called [curlconverter](https://curl.trillworks.com/) to convert the cURL to a Python script and worked from there.
 I will sort-off copy-paste it here for convencience.
 
 
