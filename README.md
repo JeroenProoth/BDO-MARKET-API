@@ -47,10 +47,10 @@ I will sort-off copy-paste it here for convencience.
 0. `User-Agent` is already spoofed within the library. No need for you to do this.
 1. Sign in to https://market.blackdesertonline.com/.
 2. Open the `Developer Tools` and select `Network`.
-3. Click the sear icon. Search for an item with enhancement. 
+3. Click the search icon. Search for an item with enhancement. 
 4. Click on the listing to open up details for that item.
 5. Check the network tab for `GetItemSellBuyInfo`. 
-	- Create a file `secrets.py` with parameters `SESSIONID`, `COOKIETOKEN` and `FORMTOKEN`. An example can be found under examples.
+	- Create a file `secrets.py` with parameters `SESSIONID`, `COOKIETOKEN` and `FORMTOKEN`. An example can be found (here)[https://github.com/JeroenProoth/BDO-MARKET-API/blob/main/examples/secrets_example.py].
 	- Right-click and select `cURL (cmd)`
 	- Paste into (curlconverter)[https://curl.trillworks.com/] and convert to Python.
 		- `SESSIONID` can be found under `cookies`, and is called `ASP.NET_SessionId`
