@@ -34,7 +34,7 @@ class Client():
         if self.data['mainKey']:
             try:
                 request = self.http.post(
-                    "https://marketweb-eu.blackdesertonline.com" + str(method),
+                    self.base_url + str(method),
                     cookies = self.cookies,
                     headers = self.headers,
                     data = self.data
