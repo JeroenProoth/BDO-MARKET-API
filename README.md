@@ -34,11 +34,29 @@ Thanks to :sparkles:[Ruwann](https://github.com/Ruwann):sparkles: for helping me
 I tried to build a Python library to communicate with the Black Desert Online marketplace.
 
 ### Resources
-* [Curlconverter](https://github.com/NickCarneiro/curlconverter) by NickCarneiro
+* [curlconverter](https://github.com/NickCarneiro/curlconverter) by NickCarneiro
 * [bdo-marketplace](https://github.com/kookehs/bdo-marketplace)  by kookehs
 
 
 ## Getting Started
+
+Obtaining API credentials is analogous to the explanation provided by (kookehs)[https://github.com/kookehs/bdo-marketplace#obtaining-credentials-for-api-calls]. However, I used an external tool called (curlconverter)[https://curl.trillworks.com/] to convert the cURL to a Python script and worked from there.
+I will sort-off copy-paste it here for convencience.
+
+
+0. 'User-Agent' is already spoofed within the library. No need for you to do this.
+1. Sign in to https://market.blackdesertonline.com/.
+2. Open the 'Developer Tools' and select 'Network'.
+3. Click the sear icon. Search for an item with enhancement. 
+4. Click on the listing to open up details for that item.
+5. Check the network tab for 'GetItemSellBuyInfo'. 
+	- Create a file 'secrets.py' with parameters 'SESSIONID', 'COOKIETOKEN' and 'FORMTOKEN'. An example can be found under examples.
+	- Right-click and select 'cURL (cmd)'
+	- Paste into (curlconverter)[https://curl.trillworks.com/] and convert to Python.
+		- 'SESSIONID' can be found under 'cookies', and is called 'ASP.NET_SessionId'
+		- 'COOKIETOKEN' can be found under 'cookies' and is called '__RequestVerificationToken'
+		- 'FORMTOKEN' can be found under 'headers' and is called '__RequestVerificationToken'
+
 
 
 ## Contact
