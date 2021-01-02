@@ -15,7 +15,7 @@
     <li>
       <a href="#about-the-project">About The Project</a>
       <ul>
-        <li><a href="#resources">Built With</a></li>
+        <li><a href="#resources">Resources</a></li>
       </ul>
     </li>
     <li>
