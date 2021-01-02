@@ -29,7 +29,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-Thanks to [Ruwann](https://github.com/Ruwann) for helping me figure out how to read the Google console.
+Thanks to :sparkles:[Ruwann](https://github.com/Ruwann):sparkles: for helping me figure out how to read the Google console.
 
 I tried to build a Python library to communicate with the Black Desert Online marketplace.
 
