@@ -1,12 +1,18 @@
+import pandas as pd
+import os
 from .client import Client
 
-import pandas as pd
+
 
 class Calls(Client):
     item_list = pd.read_csv('market_api\\itemsids.csv', sep = ",")
+    item_data_path = 'item_data'
 
     def __init__(self, session_id, cookie_token, form_token):
         super().__init__(session_id, cookie_token, form_token)
+
+        if not os.path.exists(self.item_data_path):
+            os.makedirs(self.item_data_path)
 
 
     def get_item_id(self, item_name):
@@ -19,7 +25,7 @@ class Calls(Client):
         try:
             return self.item_list.loc[self.item_list.ID == int(item_id)].Item.values[0]
         except IndexError:
-            return None
+            raise IndexError("Item with ID '{}' not found.".format(item_id))
 
     def get_item_sell_buy_info(self, item_id):
 
@@ -30,17 +36,19 @@ class Calls(Client):
 
     def get_market_depth(self, item_id, dump = False):
         """Returns a pandas DataFrame sorted from low -> high.
-        Market depth is given by the buy- and sellCounts. 
+        Market depth is given by the buy- and sellCounts.
         """
-        
+
         data = self.get_item_sell_buy_info(item_id)['marketConditionList']
-        market_conditions = pd.DataFrame.from_dict(data)
+
+        # Sort DataFrame by given column order.
+        market_conditions = pd.DataFrame.from_dict(data)[['pricePerOne', 'buyCount', 'sellCount']]
 
         if dump:
-            market_conditions.to_csv()
+            item_name = self.get_item_name(item_id).replace(" ", "")
+            market_conditions.to_csv(self.item_data_path + '\\' + item_name + '.csv', sep = "\t", index = False)
 
-        # Return a DataFrame sorted by given column order.
-        return market_conditions[['pricePerOne', 'buyCount', 'sellCount']]
+        return market_conditions
 
     def get_latest_price(self, item_id, trigger = 'None'):
         """Returns the latest price based on buyCount or sellCount (default).
@@ -56,12 +64,10 @@ class Calls(Client):
             market_price = market_conditions.loc[market_conditions['buyCount'] != 0].max()['pricePerOne']
             if not pd.isna(market_price):
                 return market_price
-            else:
-                return market_conditions['pricePerOne'].max()
+            return market_conditions['pricePerOne'].max()
+
         else:
             market_price = market_conditions.loc[market_conditions['sellCount'] != 0].min()['pricePerOne']
             if not pd.isna(market_price):
                 return market_price
-            else:
-                return market_conditions['pricePerOne'].max()
-
+            return market_conditions['pricePerOne'].max()
