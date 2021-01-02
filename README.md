@@ -50,9 +50,9 @@ I will sort-off copy-paste it here for convencience.
 3. Click the search icon. Search for an item with enhancement. 
 4. Click on the listing to open up details for that item.
 5. Check the network tab for `GetItemSellBuyInfo`. 
-	- Create a file `secrets.py` with parameters `SESSIONID`, `COOKIETOKEN` and `FORMTOKEN`. An example can be found (here)[https://github.com/JeroenProoth/BDO-MARKET-API/blob/main/examples/secrets_example.py].
+	- Create a file `secrets.py` with parameters `SESSIONID`, `COOKIETOKEN` and `FORMTOKEN`. An example can be found [here]5https://github.com/JeroenProoth/BDO-MARKET-API/blob/main/examples/secrets_example.py°.
 	- Right-click and select `cURL (cmd)`
-	- Paste into (curlconverter)[https://curl.trillworks.com/] and convert to Python.
+	- Paste into [curlconverter](https://curl.trillworks.com/] and convert to Python).
 		- `SESSIONID` can be found under `cookies`, and is called `ASP.NET_SessionId`
 		- `COOKIETOKEN` can be found under `cookies` and is called `__RequestVerificationToken`
 		- `FORMTOKEN` can be found under `headers` and is called `__RequestVerificationToken`
