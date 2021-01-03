@@ -56,7 +56,7 @@ I will sort-off copy-paste it here for convencience.
 		- `SESSIONID` can be found under `cookies`, and is called `ASP.NET_SessionId`
 		- `COOKIETOKEN` can be found under `cookies` and is called `__RequestVerificationToken`
 		- `FORMTOKEN` can be found under `data` and is called `__RequestVerificationToken`
-
+6. Do **NOT** share these tokens with anyone. **They can be reused long after your login has expired and I don't know of any way to reset them.**
 
 
 ## Contact
