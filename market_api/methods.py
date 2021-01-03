@@ -1,7 +1,5 @@
 from .client import Client
 
-
-
 class Methods(Client):
     # Constants
     GETITEMSELLBUYINFO      = '/Home/GetItemSellBuyInfo'
