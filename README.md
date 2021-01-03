@@ -47,7 +47,8 @@ I will sort-off copy-paste it here for convencience.
 0. `User-Agent` is already spoofed within the library. No need for you to do this.
 1. Sign in to https://market.blackdesertonline.com/.
 2. Open the `Developer Tools` and select `Network`.
-3. Click the search icon. Search for an item with enhancement. 
+  - For Chrome it's `Ctrl+Shift+I` and click `Network` tab.
+3. Click the search icon. Search for an item with enhancement on the marketplace. 
 4. Click on the listing to open up details for that item.
 5. Check the network tab for `GetItemSellBuyInfo`. 
 	- Create a file `secrets.py` with parameters `SESSIONID`, `COOKIETOKEN` and `FORMTOKEN`. An example can be found [here](https://github.com/JeroenProoth/BDO-MARKET-API/blob/main/examples/secrets_example.py).
