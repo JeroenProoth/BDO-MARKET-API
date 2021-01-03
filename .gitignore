@@ -128,3 +128,4 @@ dmypy.json
 secrets.py
 main.py
 /item_data
+snippets.py
