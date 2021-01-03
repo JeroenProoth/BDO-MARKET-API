@@ -34,6 +34,13 @@ class Calls(Client):
 
         return data
 
+    def get_world_market_sub_list(self, item_id):
+
+        self.set_item(item_id)
+        data = self.connect(method = '/Home/GetWorldMarketSubList')
+
+        return data['detailList']
+
     def get_market_depth(self, item_id, dump = False):
         """Returns a pandas DataFrame sorted from low -> high.
         Market depth is given by the buy- and sellCounts.
@@ -71,3 +78,9 @@ class Calls(Client):
             if not pd.isna(market_price):
                 return market_price
             return market_conditions['pricePerOne'].max()
+
+    def get_items_sold(self, item_id):
+
+        item_conditions = self.get_world_market_sub_list(item_id)
+
+        return item_conditions
