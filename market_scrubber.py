@@ -2,17 +2,21 @@ import time
 import pandas as pd
 from market_api.methods import Methods
 from masteries.cooking import CookingMastery
+from webscraper import WebScraper
 
 class MarketScrubber():
 
-    def __init__(self, session_id, cookie_token, form_token, item_dataframe):
+    def __init__(self, session_id, cookie_token, form_token, item_dataframe, material_groups):
         self.methods = Methods(session_id, cookie_token, form_token)
         self.item_dataframe = item_dataframe
+        self.material_groups = material_groups
 
     def get_item_id(self, item_name):
+        """Returns item_id given an item_id."""
         return self.item_dataframe.loc[(self.item_dataframe.name).apply(lambda x : x.casefold()) == str(item_name).casefold()].mainKey.values[0]
 
     def get_item_name(self, item_id):
+        """Returns item_name given an item_id."""
         return self.item_dataframe.loc[self.item_dataframe.mainKey == int(item_id)].name.values[0]
 
     def get_market_depth(self, item):
@@ -66,11 +70,10 @@ class MarketScrubber():
 
         returns a tuple (input value, output value)
         """
-        cm = CookingMastery(mastery)
+        cooking_master = CookingMastery(mastery)
 
-        max_proc_chance = cm.regular_rare_max_chance()
-        rare_proc_chance = cm.rare_proc_chance()
-
+        max_proc_chance = cooking_master.regular_rare_max_chance()
+        rare_proc_chance = cooking_master.rare_proc_chance()
         outputs = recipe['output']
         inputs = recipe['input']
 
